@@ -109,10 +109,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias windev="/mnt/c/dev"
-alias winhome="/mnt/c/Users/black"
-alias windoc="/mnt/c/Users/black/OneDrive/Documents"
-alias winstud="/mnt/c/Users/black/OneDrive/Documents/Studium/TH\ Deggendorf"
+
+# system specific aliases
+if [ -f ~/.aliases ]; then
+. ~/.aliases
+fi
+
+# my custom own aliases (e.g. navigation to folders)
+if [ -f ~/.own_aliases ]; then
+. ~/.own_aliases
+fi
 
 # dotfiles repository worktree alias
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
