@@ -14,6 +14,7 @@
 call plug#begin()
   Plug 'preservim/nerdtree'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 " COC CONFIG
@@ -37,6 +38,9 @@ set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+
+" set stty to silent to use <c-q>
+silent !stty -ixon
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -172,7 +176,10 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " CUSTOM KEY BINDINGS
+nnoremap <c-q> <c-v>
 map <C-l> :ter<CR>
+" map fzf
+map <C-p> :FZF<CR>
 
 " WSL yank support
 let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
