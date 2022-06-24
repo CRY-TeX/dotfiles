@@ -137,7 +137,7 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 export FZF_DEFAULT_COMMAND="rg --files --follow --no-ignore-vcs --hidden -g '!{**/node_modules/*,**/.git/*,**/.local/*,**/.cache/*,**/R/*,**/go/*,**/.nvm/*,**/.npm/*,**/venv/*,**/.pyenv/*,**/.vim/*,**/.vscode-server/*}'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_R_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="rg --files --follow --no-ignore-vcs --null --hidden -g '!{**/node_modules/*,**/.git/*,**/.local/*,**/.cache/*,**/R/*,**/go/*,**/.nvm/*,**/.npm/*,**/venv/*,**/.pyenv/*,**/.vim/*,**/.vscode-server/*}' | xargs -0 dirname | uniq"
 export FZF_DEFAULT_OPTS='--cycle --multi --bind tab:toggle-down,shift-tab:toggle-up'
 # fix zsh-vi-mode and fzf overlap (e.g. with cd /**)
 zvm_after_init_commands+=('[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh')
