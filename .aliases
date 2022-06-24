@@ -3,4 +3,7 @@ alias ll='ls -alF'
 alias la='ls -ahl'
 alias l='ls -CF'
 
-
+# neofetch clear ;)
+if [ $(command -v neofetch) ]; then
+  alias neoclear='clear && neofetch'
+fi
